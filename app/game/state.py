@@ -1,11 +1,12 @@
 from typing import List, Optional, Dict
 from app.game.board import Board
+from app.game.catalog import get_full_set  # <--- NOWY IMPORT
 
 class PlayerState:
     def __init__(self, player_id: str):
         self.player_id = player_id
         self.has_passed = False
-        # Tutaj w przyszłości dodamy listę dostępnych 21 klocków (self.available_pieces)
+        self.available_pieces = get_full_set()  # <--- KAŻDY GRACZ DOSTAJE 21 KLOCKÓW
         self.score = 0
 
 class GameState:
